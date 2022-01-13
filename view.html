@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="./resource/js/jquery-3.4.1.min.js"></script>
+    <script src="./resource/bootstrap-5.0.2-dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="./resource/fontawesome-free-5.15.3-web/css/all.css">
     <link rel="stylesheet" href="./resource/bootstrap-5.0.2-dist/css/bootstrap.css">
     <link rel="stylesheet" href="./resource/css/style.css">
@@ -24,11 +26,11 @@
             </ul>
         </nav>
     </header>
-    <section>
-        <div class="container detail">
+    <section class="detail">
+        <div class="container">
             <div class="box">
                 <div class="left">
-                    <img src="./resource/img/item/성심당-소보로.png" alt="">
+                    <img src="./resource/img/item/성심당-소보로.png" alt="goods-image">
                 </div>
                 <div class="right">
                     <div class="top">
@@ -37,18 +39,19 @@
                     </div>
                 
                     <div class="mid">
-                        <p>1,500\</p>
-                        <p>유통기한: 당일섭취 권장상품</>
-                        <p>보관방법: 직사광선을 피하고 서늘한 곳 보관</>
-                        <p>영엽시간: 08:00 - 22:30</>
+                        <p class="price">1,500\</p>
+                        <p class="date">유통기한: 당일섭취 권장상품</>
+                        <p class="how">보관방법: 직사광선을 피하고 서늘한 곳 보관</>
+                        <p class="time">영엽시간: 08:00 - 22:30</>
                     </div>
 
                     <div class="bot">
-                        <input type="number" name="" id="" class="form-control" value="1" min="1" step="1">
+                        <input type="number" name="cnt" id="cnt" class="form-control" value="1" min="1" step="1">
                         <span class="tot">1,500\</span>
                     </div>
 
-                    <button class="btn-cus">장바구니 담기</button>
+                    <button class="btn-cus basket">장바구니 담기</button>
+                    <button class="btn-cus">바로예약</button>
                 </div>
             </div>
         </div>
@@ -81,5 +84,6 @@
             </div>
         </div>
     </footer>
+    <script src="./resource/js/view.js"></script>
 </body>
 </html>
