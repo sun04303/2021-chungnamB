@@ -1,10 +1,22 @@
 let goodsList = []
+let selectGoods = []
+let stat = false
+
+window.addEventListener('keydown', e => {
+    if(e.shiftKey) {
+        stat = true
+    }
+})
+
+window.addEventListener('keyup', e => {
+    if(e.key == 'Shift') {
+        stat = false
+    }
+})
 
 fetch('./resource/js/data.json')
 .then(res => res.json())
 .then(data => {
-    console.log(data)
-
     data.forEach((item, idx) => {
         const {name, etc} = item
 
@@ -44,8 +56,6 @@ fetch('./resource/js/data.json')
 fetch('./resource/js/menus.json')
 .then(res => res.json())
 .then(data => {
-    console.log(data)
-
     makegoods(data, "전체")
 
     document.querySelectorAll('.view__goods').forEach(item => {
@@ -98,13 +108,16 @@ function makegoods(data, target) {
         item.addEventListener('mouseup', e => {
             let left = Math.abs(Number(e.target.style.left.split('p')[0]))
             let top = Math.abs(Number(e.target.style.top.split('p')[0]))
-            
-            if(left + top < 1) {
+
+            if(left + top < 1 && !stat) {
                 let id = Number(e.target.dataset.id)
                 let product = data.find(item => item.image.split('.')[0] == id + 1)
 
                 localStorage.setItem('product', JSON.stringify(product))
                 location.href = '/view.html'
+            } else if(stat && selectGoods.length < 5) {
+                e.target.classList.toggle("select")
+                selectGoods.push(e.target)
             }
         })
     })
@@ -203,7 +216,6 @@ function updateCart(arr, data, cart) {
         item.addEventListener('click', e => {
             let left = Math.abs(Number(e.target.style.left.split('p')[0]))
             let top = Math.abs(Number(e.target.style.top.split('p')[0]))
-            console.log(left, top)
             if(left + top < 1) {
                 let id = Number(e.target.src.split('/').reverse()[0].split('.')[0])
                 let product = data.find(item => item.image.split('.')[0] == id)

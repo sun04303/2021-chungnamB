@@ -1,11 +1,12 @@
 window.addEventListener('load', e => {
     let data = JSON.parse(localStorage.getItem('product'))
     let basket = JSON.parse(localStorage.getItem('basket'))
+
     if(data) {
         const {image, menuname, name, etc, price, shelf, time} = data
-        console.log(data)
+        
         document.querySelector('.left img').src = `./resource/img/menus/${image}`
-        $('h2').html(`${menuname} / ${name}`)
+        $('h2').html(`${menuname} <span style="font-size: 20px;">/ ${name}</span>`)
         $('.top p').html(etc)
         $('.price').html(`${Number(price).toLocaleString()}\\`)
         $('.date').html(shelf)
@@ -16,14 +17,15 @@ window.addEventListener('load', e => {
             $('.tot').html(`${(Number(price) * $('#cnt').val()).toLocaleString()}\\`)
         })
 
-        document.querySelector('.basket').addEventListener('click', e => {
+        document.querySelector('.basket-btn').addEventListener('click', e => {
+            data.cnt = $('#cnt').val()
             if(basket) {
                 basket.push(data)
-                localStorage.setItem('basket', basket)
+                localStorage.setItem('basket', JSON.stringify(basket))
                 location.href = '/basket.html'
             } else {
                 basket = [data]
-                localStorage.setItem('basket', basket)
+                localStorage.setItem('basket', JSON.stringify(basket))
                 location.href = '/basket.html'
             }
         })

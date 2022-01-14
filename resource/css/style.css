@@ -222,7 +222,7 @@ input[id="five"]:checked ~ .summarylist .item:nth-child(5) {
     width: 600px;
     height: 730px;
     position: relative;
-    top: -60%;
+    top: -57%;
     left: 55%;
 }
 
@@ -701,6 +701,10 @@ footer .sns .item img {width: 100%;}
     cursor: pointer;
 }
 
+.shoplist .goods img.select {
+    border: 2px solid #000;
+}
+
 .modal-body {display: flex;}
 
 .modal .text {
@@ -755,6 +759,7 @@ footer .sns .item img {width: 100%;}
 
 .detail .box {
     display: flex;
+    justify-content: space-around;
 }
 
 .detail .left {width: 40%;}
@@ -781,3 +786,52 @@ footer .sns .item img {width: 100%;}
 }
 
 .detail .right .bot input {width: 370px;}
+
+/* 장바구니 */
+
+.basket {
+    min-height: calc(100vh - 300px);
+    padding-top: 70px;
+}
+
+.basket .container {
+    display: flex;
+    flex-direction: column;
+}
+
+.basket table {vertical-align: middle;}
+
+.basket table img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.basket .etc {align-self: flex-end;}
+
+.basket .etc button {margin-left: 20px;}
+
+/* 회원가입 */
+
+.register form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register form button[type="submit"] {
+    width: 54px;
+    align-self: flex-end;
+}
+
+.register .keyboard {
+    width: 200px;
+    margin: -40px 0 30px;
+    padding: 10px;
+    border-radius: 5px;
+    gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .7);
+}
