@@ -7,10 +7,12 @@ $('#num').on('focus', e => {
     makeKeyboard()
 })
 
-$('#num').on('blur', e => {
-    $('.keyboard').css({
-        display:'none'
-    })
+window.addEventListener('click', e => {
+    console.log('click')
+    if(!e.target.classList.contains('keyboard') && e.target != document.querySelector('#num') && !e.target.classList.contains('btn')) {
+        console.log('in')
+        document.querySelector('.keyboard').style.display = 'none'
+    }
 })
 
 document.querySelector('.keyboard').addEventListener('click', e => {
